@@ -1,1 +1,16 @@
-<サイドバー>
+.side-bar
+  .side-bar__header
+    .side-bar__header--box
+      %span.name masa
+      %ul.list
+        %li.list__list-icon
+          =link_to "#" do 
+            = icon('fas', 'edit')
+        %li.list__list-icon
+          =link_to "#" do  
+            = icon('fas', 'cog')
+  .side-bar__groups
+    =link_to "#" do 
+      .side-bar__groups--group
+        %p.group-name tech camp
+        %p.group-message 新着メッセージはありません

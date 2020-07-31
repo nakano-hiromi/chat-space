@@ -1,1 +1,26 @@
-<チャット画面>
+.main
+  .main__main-header
+    .main__main-header--group
+      %p.group-name test
+      %p.member Menber:masa
+    
+    .main__main-header--edit
+      =link_to "#" do
+        Edit
+    
+  .main__contents
+    .main__contents--message
+      %span.username masa
+      %span.time 2019/11/20(Wed) 17:43:01
+      %p.content おはよう!
+      %span.username masa
+      %span.time 2019/11/20(Wed) 17:43:34
+      %p.content 今日は朝から雨
+  .main__chat-form
+    .main__chat-form--box
+      %form.new-message
+        %input{type:"text",class:"content-form",placeholder:"type a message"}
+        %label{class:"label"}
+          =icon('fas','image')
+          %input{type:"file",class:"file"}
+        %input{type:"submit",class:"submit-btn",value:"Send"} 
