@@ -1,7 +1,7 @@
 class GroupsController < ApplicationController
 
   def index
-    @group =group.find(params[:id])
+    # @group =Group.find(params[:id])
   end
 
   def new

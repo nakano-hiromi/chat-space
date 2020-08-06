@@ -1,19 +1,20 @@
 .side-bar
   .side-bar__header
     .side-bar__header--box
-      = current_user.name
+      %span.name
+        =current_user.name
       %ul.list
         %li.list__list-icon
-          = link_to new_group_path do
+          =link_to new_group_path do 
             = icon('fas', 'edit')
         %li.list__list-icon
           =link_to edit_user_path(current_user) do  
             = icon('fas', 'cog')
   .side-bar__groups
     - current_user.groups.each do |group|
-      .Group
-        = link_to group_messages_path(group) do
-          .Group__name
+      =link_to group_messages_path(group) do 
+        .side-bar__groups--group
+          %p.group-name 
             = group.name
-          .Group__message
+          %p.group-message 
             = group.show_last_message

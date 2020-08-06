@@ -1,28 +1,26 @@
+  
 .main
   .main__main-header
     .main__main-header--group
       %p.group-name 
-        #{@group.name}
-      %p.member
-        Member:
-        - @group.users.each do |u|
-          =u.name
-    
+        =@group.name
+      %span.member Member:  
+      -@group.users.each do |user|
+        %span.member 
+          =user.name
+          
+        
     .main__main-header--edit
-      =link_to edit_group_path(@group) ,class:"group__information__edit" do
+      =link_to edit_group_path(@group) do 
         Edit
-    
   .main__contents
     = render @messages
 
-
   .main__chat-form
     .main__chat-form--box
-    = form_with model: [@group, @message], html: {class: "Form"}, local: true do |f|
-      = f.text_field :content, class: 'content-form', placeholder: 'type a message'
-      = f.label :image, class: 'label' do
-        = icon('far', 'image', class: 'Form__icon')
-        = f.file_field :image, class: 'file"'
-      = f.submit 'Send', class: 'submit-btn'
-
-   
+      = form_for [@group, @message],html: { class: "new-message" } do |f|
+        = f.text_field :content, class: 'content-form', placeholder: 'type a message'
+        = f.label :image, class: 'label' do
+          = icon('fas', 'image', class: 'icon')
+        = f.file_field :image, class: 'file'
+        = f.submit 'Send', class: 'submit-btn'
