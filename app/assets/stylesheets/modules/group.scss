@@ -22,7 +22,9 @@ li {
   font-size: 13px;
 }
 
-.SettingGroupForm {
+
+
+.chat-group-form {
   width: 980px;
   margin: 60px auto;
   padding: 40px;
@@ -30,19 +32,12 @@ li {
   border: 1px solid #ddd;
   border-radius: 5px;
   box-sizing: border-box;
-  &__field {
-    margin-top: 30px;
-    display: flex;
-    justify-content: space-between;
-  }
-  &__leftField {
-    width: 30%;
-    padding-right: 20px;
-    padding-left: 20px;
-    box-sizing: border-box;
-  }
-  &__rightField {
-    width: 70%;
+  &__errors {
+    margin: 30px 0;
+    padding: 20px 40px;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    text-align: center;
   }
   &__label {
     display: block;
@@ -51,42 +46,62 @@ li {
     text-align: right;
   }
   &__input {
+    float: left;
     width: 100%;
     line-height: 30px;
     padding: 10px 15px;
     box-sizing: border-box;
   }
-  &__button {
+  &__action-btn {
     display: inline-block;
     padding: 12px 20px;
     color: #fff;
     background-color: #38aef0;
     border: 0;
   }
-  &__errors {
-    margin: 30px 0;
-    padding: 20px 40px;
-    border: 1px solid #ddd;
-    border-radius: 2px;
-    text-align: center;
+  &__field {
+    margin-top: 30px;
+    &:after {
+      content: "";
+      clear: both;
+      display: block;
+    }
+    &--left {
+      float: left;
+      width: 30%;
+      padding-right: 20px;
+      padding-left: 20px;
+      box-sizing: border-box;
+    }
+    &--right {
+      float: right;
+      width: 70%;
+    }
   }
 }
 
-.ChatMember {
+.chat-group-user {
   padding: 0 15px;
   line-height: 50px;
   font-size: 14px;
   border-bottom: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  &__button {
+  &:after {
+    content: "";
+    clear: both;
+    display: block;
+  }
+  &__name {
+    float: left;
+  }
+  &__btn {
+    float: right;
     display: inline-block;
     cursor: pointer;
-  }
-  &__add {
-    color: #38aef0;
-  }
-  &__remove {
-    color: #f05050;
+    &--add {
+      color: #38aef0;
+    }
+    &--remove {
+      color: #f05050;
+    }
   }
 }
